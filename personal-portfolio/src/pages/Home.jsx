@@ -4,7 +4,12 @@ function Home() {
   return (
     <Container maxWidth="md" sx={{ mt: 8 }}>
       <Stack spacing={3} alignItems="flex-start">
-        <Typography variant="h2" component="h1" fontWeight="bold">
+        <Typography
+          variant="h2"
+          component="h1"
+          fontWeight="bold"
+          color="black"
+        >
           Hi, I&apos;m Michelle Jiang
         </Typography>
 

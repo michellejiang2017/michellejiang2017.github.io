@@ -1,17 +1,22 @@
+import { AppBar, Button, Toolbar, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
-    <nav className="navbar">
-      <h2>My Portfolio</h2>
+    <AppBar position="static" elevation={0} sx={{ backgroundColor: "#1f2937" }}>
+      <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Typography variant="h6" fontWeight="bold">
+          Michelle Jiang
+        </Typography>
 
-      <div className="nav-links">
-        <Link to="/">Home</Link>
-        <Link to="/projects">Projects</Link>
-        <Link to="/about">About</Link>
-        <Link to="/contact">Contact</Link>
-      </div>
-    </nav>
+        <div>
+          <Button color="inherit" component={Link} to="/">Home</Button>
+          <Button color="inherit" component={Link} to="/about">About</Button>
+          <Button color="inherit" component={Link} to="/projects">Projects</Button>
+          <Button color="inherit" component={Link} to="/contact">Contact</Button>
+        </div>
+      </Toolbar>
+    </AppBar>
   );
 }
 
