@@ -1,4 +1,12 @@
 import { useState } from "react";
+import {
+  Alert,
+  Button,
+  Container,
+  Stack,
+  TextField,
+  Typography,
+} from "@mui/material";
 
 function Contact() {
   const [submitted, setSubmitted] = useState(false);
@@ -9,19 +17,56 @@ function Contact() {
   }
 
   return (
-    <section>
-      <h1>Contact Me</h1>
+    <Container maxWidth="sm" sx={{ mt: 8 }}>
+      <Stack spacing={4}>
+        <Typography variant="h3" fontWeight="bold">
+          Contact
+        </Typography>
 
-      <form className="contact-form" onSubmit={handleSubmit}>
-        <input type="text" placeholder="Name" required />
-        <input type="email" placeholder="Email" required />
-        <textarea placeholder="Message" required />
+        <Typography variant="body1">
+          Feel free to reach out through LinkedIn, GitHub, or the contact form
+          below.
+        </Typography>
 
-        <button type="submit">Send Message</button>
-      </form>
+        <form onSubmit={handleSubmit}>
+          <Stack spacing={3}>
+            <TextField
+              label="Name"
+              variant="outlined"
+              fullWidth
+              required
+            />
 
-      {submitted && <p className="success">Thanks! Your message was submitted.</p>}
-    </section>
+            <TextField
+              label="Email"
+              type="email"
+              variant="outlined"
+              fullWidth
+              required
+            />
+
+            <TextField
+              label="Message"
+              variant="outlined"
+              multiline
+              rows={5}
+              fullWidth
+              required
+            />
+
+            <Button type="submit" variant="contained" size="large">
+              Send Message
+            </Button>
+
+            {submitted && (
+              <Alert severity="success">
+                Your message has been submitted.
+              </Alert>
+            )}
+          </Stack>
+        </form>
+      </Stack>
+    </Container>
   );
 }
 

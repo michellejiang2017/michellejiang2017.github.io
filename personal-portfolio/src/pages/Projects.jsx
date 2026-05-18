@@ -1,32 +1,91 @@
+import {
+  Card,
+  CardContent,
+  Container,
+  Grid,
+  Typography,
+} from "@mui/material";
+
 function Projects() {
   const projects = [
     {
-      title: "Wage Tracking App",
-      description: "A web app that helps organize payroll information more efficiently.",
+      title: "JA Wages Tracker Website",
+      technologies: "Python, Flask, SQL",
+      description:
+        "Developed a web application that uploaded CSV attendance files and automatically calculated member wages, improving efficiency and reducing manual work.",
     },
     {
-      title: "Campus Rideshare Prototype",
-      description: "A hackathon project focused on helping students share rides.",
+      title: "Wheely Mammoths Rideshare",
+      technologies: "Java, HTML/CSS, Gradle",
+      description:
+        "Built a proof-of-concept campus rideshare website during a 24-hour hackathon. The project won 1st Place in Sustainable Transportation.",
     },
     {
-      title: "Portfolio Website",
-      description: "A React Router website with multiple pages and clean navigation.",
+      title: "Alien Assassin Game",
+      technologies: "Ren'Py, Python",
+      description:
+        "Created a visual novel game during Global Game Jam with branching storylines, multiple endings, and interactive dialogue systems.",
+    },
+    {
+      title: "Shopping Mall Simulator",
+      technologies: "Java",
+      description:
+        "Designed an interactive shopping simulation game where players completed objectives, managed resources, and interacted with stores and employees.",
     },
   ];
 
   return (
-    <section>
-      <h1>Projects</h1>
+    <Container maxWidth="lg" sx={{ mt: 8 }}>
+      <Typography
+        variant="h3"
+        fontWeight="bold"
+        gutterBottom
+      >
+        Projects
+      </Typography>
 
-      <div className="cards">
+      <Typography
+        variant="body1"
+        color="text.secondary"
+        sx={{ mb: 4 }}
+      >
+        A selection of software, game development, and hackathon projects.
+      </Typography>
+
+      <Grid container spacing={3}>
         {projects.map((project, index) => (
-          <div className="card" key={index}>
-            <h3>{project.title}</h3>
-            <p>{project.description}</p>
-          </div>
+          <Grid item xs={12} md={6} key={index}>
+            <Card
+              sx={{
+                height: "100%",
+              }}
+            >
+              <CardContent>
+                <Typography
+                  variant="h5"
+                  fontWeight="bold"
+                  gutterBottom
+                >
+                  {project.title}
+                </Typography>
+
+                <Typography
+                  variant="subtitle2"
+                  color="primary"
+                  gutterBottom
+                >
+                  {project.technologies}
+                </Typography>
+
+                <Typography variant="body1">
+                  {project.description}
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
         ))}
-      </div>
-    </section>
+      </Grid>
+    </Container>
   );
 }
 
